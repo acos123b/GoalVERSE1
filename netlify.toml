@@ -1,0 +1,24 @@
+# GoalVERSE - Netlify Configuration
+
+[build]
+  # Publish directory (where your HTML files are)
+  publish = "."
+  
+  # Functions directory (where serverless functions are)
+  functions = "netlify/functions"
+
+# Redirect all API calls to the serverless function
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api-proxy?endpoint=:splat"
+  status = 200
+  force = true
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"

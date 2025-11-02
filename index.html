@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://apis.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://identitytoolkit.googleapis.com https://*.netlify.app https://*.vercel.app;">
+    <title>GoalVERSE - Live Football, Predictions & Rewards</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header (Navigation Bar) -->
+    <header class="header" id="mainHeader">
+        <div class="header-container">
+            <!-- Left: Logo -->
+            <div class="logo-section">
+                <img src="assets/logo.png" alt="GoalVERSE Logo" class="logo-img" id="logoImg">
+                <span class="site-name">GoalVERSE</span>
+            </div>
+            
+            <!-- Right: Login Button (shows before login) -->
+            <div class="header-actions">
+                <button class="btn btn-primary" id="loginBtn">Login</button>
+                <!-- After login, this will show user profile (hidden initially) -->
+                <div class="user-profile" id="userProfile" style="display: none;">
+                    <img src="" alt="User Avatar" class="user-avatar" id="userAvatar">
+                    <span class="user-name" id="userName"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section (Main Landing Area) -->
+    <section class="hero">
+        <div class="hero-container">
+            <!-- Left Column: Text Content -->
+            <div class="hero-content">
+                <h1 class="hero-title">GoalVERSE — Live Football, Predictions & Rewards</h1>
+                <p class="hero-subtitle">Live scores, AI predictions, pick idols & clubs, earn coins, and unlock wallpapers — free to start.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary-large" id="getStartedBtn">Get Started</button>
+                    <button class="btn btn-secondary-large" id="exploreDemoBtn">Explore Demo</button>
+                </div>
+            </div>
+            
+            <!-- Right Column: Football Character Illustration -->
+            <div class="hero-image">
+                <div class="football-character">
+                    <svg width="420" height="420" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg" class="character-svg">
+                        <!-- Friendly football character - waving -->
+                        <circle cx="210" cy="180" r="80" fill="#F4D03F" stroke="#0B2545" stroke-width="4"/>
+                        <!-- Face -->
+                        <circle cx="190" cy="170" r="8" fill="#0B2545"/>
+                        <circle cx="230" cy="170" r="8" fill="#0B2545"/>
+                        <path d="M 190 200 Q 210 210 230 200" stroke="#0B2545" stroke-width="4" fill="none" stroke-linecap="round"/>
+                        <!-- Body -->
+                        <rect x="170" y="260" width="80" height="100" rx="15" fill="#1E8449" stroke="#0B2545" stroke-width="4"/>
+                        <!-- Arms (one waving) -->
+                        <rect x="120" y="270" width="50" height="20" rx="10" fill="#F4D03F" stroke="#0B2545" stroke-width="3" class="waving-arm"/>
+                        <rect x="250" y="290" width="50" height="20" rx="10" fill="#F4D03F" stroke="#0B2545" stroke-width="3"/>
+                        <!-- Legs -->
+                        <rect x="175" y="360" width="25" height="50" rx="12" fill="#0B2545"/>
+                        <rect x="220" y="360" width="25" height="50" rx="12" fill="#0B2545"/>
+                        <!-- Football -->
+                        <circle cx="340" cy="320" r="35" fill="#FFFFFF" stroke="#0B2545" stroke-width="3"/>
+                        <path d="M 340 285 L 340 355 M 305 320 L 375 320" stroke="#0B2545" stroke-width="2"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Cards (What GoalVERSE Offers) -->
+    <section class="features">
+        <div class="features-container">
+            <!-- Card 1: Live Scores -->
+            <div class="feature-card">
+                <div class="feature-icon">⚽</div>
+                <h3 class="feature-title">Live Scores</h3>
+                <p class="feature-description">Real-time match updates from 12 major leagues and tournaments worldwide.</p>
+            </div>
+            
+            <!-- Card 2: Predict & Earn -->
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3 class="feature-title">Predict & Earn</h3>
+                <p class="feature-description">Vote on match outcomes and earn coins when your favorite teams win.</p>
+            </div>
+            
+            <!-- Card 3: Rewards -->
+            <div class="feature-card">
+                <div class="feature-icon">🎁</div>
+                <h3 class="feature-title">Rewards</h3>
+                <p class="feature-description">Spend coins on exclusive wallpapers, ringtones, and profile themes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link">Terms of Service</a>
+            </div>
+            <p class="footer-copyright">&copy; 2025 GoalVERSE. Built by Soumak Mukherjee.</p>
+        </div>
+    </footer>
+
+    <!-- Get Started Modal (appears when user clicks Get Started) -->
+    <div class="modal" id="getStartedModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            
+            <!-- Kick Character Speaking -->
+            <div class="character-speech">
+                <div class="speech-bubble" id="speechBubble">
+                    <p id="speechText">Hi! I'm Kick — I'll guide you. Let's log you in to save your coins.</p>
+                </div>
+                <div class="small-character">⚽</div>
+            </div>
+            
+            <!-- Login Options -->
+            <div class="login-section" id="loginSection">
+                <h2 class="modal-title">Welcome to GoalVERSE!</h2>
+                <button class="btn btn-google" id="googleLoginBtn">
+                    <span class="google-icon">G</span> Sign in with Google
+                </button>
+                <div class="divider">
+                    <span>or</span>
+                </div>
+                <input type="email" class="input-field" id="emailInput" placeholder="Enter your email">
+                <input type="password" class="input-field" id="passwordInput" placeholder="Enter password">
+                <button class="btn btn-primary" id="emailLoginBtn">Sign in with Email</button>
+                <p class="login-note">New here? We'll create your account automatically.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Onboarding Wizard Modal (appears after login) -->
+    <div class="modal" id="onboardingModal">
+        <div class="modal-content wizard-content">
+            <!-- Step Indicators -->
+            <div class="wizard-steps">
+                <div class="step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Choose Idol</div>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Choose Club</div>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Choose Nation</div>
+                </div>
+            </div>
+
+            <!-- Step 1: Choose Idol -->
+            <div class="wizard-step-content" id="step1" style="display: block;">
+                <h2 class="wizard-title">Choose Your Football Idol</h2>
+                <input type="text" class="search-box" id="playerSearch" placeholder="Search for your favourite player...">
+                <div class="grid-container" id="playersGrid">
+                    <!-- Players will load here dynamically -->
+                    <p class="loading-text">Loading players...</p>
+                </div>
+                <button class="btn btn-primary" id="nextStep1" disabled>Continue</button>
+            </div>
+
+            <!-- Step 2: Choose Club -->
+            <div class="wizard-step-content" id="step2" style="display: none;">
+                <h2 class="wizard-title">Choose Your Favourite Club</h2>
+                <input type="text" class="search-box" id="clubSearch" placeholder="Search for your favourite club...">
+                <div class="grid-container" id="clubsGrid">
+                    <p class="loading-text">Loading clubs...</p>
+                </div>
+                <button class="btn btn-primary" id="nextStep2" disabled>Continue</button>
+            </div>
+
+            <!-- Step 3: Choose Nation -->
+            <div class="wizard-step-content" id="step3" style="display: none;">
+                <h2 class="wizard-title">Choose Your Nation</h2>
+                <input type="text" class="search-box" id="nationSearch" placeholder="Search for your country...">
+                <div class="grid-container" id="nationsGrid">
+                    <p class="loading-text">Loading nations...</p>
+                </div>
+                <button class="btn btn-primary" id="finishOnboarding" disabled>Finish Setup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Congratulations Overlay (shows after onboarding) -->
+    <div class="overlay" id="congratsOverlay" style="display: none;">
+        <div class="congrats-card">
+            <div class="congrats-icon">🎉</div>
+            <h2>Welcome to GoalVERSE!</h2>
+            <p>Your profile is ready. You'll earn coins when your favorites win!</p>
+            <button class="btn btn-primary" id="startTourBtn">Start Quick Tour</button>
+        </div>
+    </div>
+
+    <!-- Main Script -->
+    <script src="script.js"></script>
+</body>
+</html>

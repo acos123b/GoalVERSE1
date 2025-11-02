@@ -1,0 +1,60 @@
+# GoalVERSE - Files to ignore in Git
+
+# Environment variables (contains sensitive API keys)
+.env
+.env.local
+.env.production
+
+# Node modules (if you add them later)
+node_modules/
+
+# Build outputs
+dist/
+build/
+.cache/
+
+# Netlify
+.netlify/
+
+# Log files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Operating System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+
+# Temporary files
+*.tmp
+*.temp
+.temp/
+tmp/
+
+# Backup files
+*.bak
+*.backup
+
+# Test files (add later if needed)
+coverage/
+.nyc_output/
+
+# Personal notes (if you create any)
+notes.txt
+todo.txt
+NOTES.md
